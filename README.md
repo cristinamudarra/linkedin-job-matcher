@@ -1,3 +1,4 @@
+# [WORK IN PROGRESS!]
 # Job Search Skills Analysis Project
 
 This Python-based project aims to analyze thousands of job listings to identify the most in-demand skills for roles such as Data Scientist, Data Engineer, and Data Analyst. The project workflow involves several key stages:
