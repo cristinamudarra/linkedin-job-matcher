@@ -1,10 +1,10 @@
-from src.datascraping import LinkedInJobScraper
-from src.readcv import get_pdf
-from src.similarity import similarity
-from src.data_preprocessing import keep_letters, delete_beginning_end
+from components.datascraping import LinkedInJobScraper
+from components.readcv import get_pdf
+from components.similarity import similarity
+from components.data_preprocessing import keep_letters, delete_beginning_end
 import pandas as pd
 
-def main():
+def main_process():
     
     #job_offers = scrape_linkedin(job_title="Data scientist", location="New York")
     job_offers = pd.read_pickle('data/scraped_data/df_data_science.pkl')
@@ -13,15 +13,18 @@ def main():
     job_offers['Job_txt'] = job_offers.Job_txt.apply(keep_letters)
     
 
-    user_cv_path = "data\CV Cristina Mudarra.pdf"
+    user_cv_path = "data/CV Cristina Mudarra.pdf"
     cv = get_pdf(user_cv_path)
     cv = cv.replace("\n", " ")
     cv = keep_letters(cv)
 
-    top_5_similar_jobs = similarity(cv, job_offers, 5)
-    
-    print(top_5_similar_jobs)
+    top_similar_jobs = similarity(cv, job_offers, 5)
 
 
-if __name__ == "__main__":
-    main()
+    return top_similar_jobs
+
+    """
+  if __name__ == "__main__":
+    main()  
+    """
+
