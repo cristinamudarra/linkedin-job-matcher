@@ -3,6 +3,7 @@ workflow "Example Workflow" {
   resolves = ["Lint"]
 }
 
+
 action "Lint" {
   uses = "lgeiger/black-action@master"
   args = ". --check"
