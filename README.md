@@ -1,7 +1,7 @@
 # LinkedIn Job Matcher
 
 # Overview
-The LinkedIn Job Matcher is at a Minimum Viable Product (MVP) stage. It is designed to streamline the job search process for users by providing personalized job recommendations based on their uploaded CV. The project's uniqueness lies in its ability to read various CV formats, breaking away from the constraints of a common and structured template. The system focuses on data-related roles, including data scientist, data analyst, data engineer, machine learning engineer, and business analyst, within specific locations such as London, New York, Dublin, Edinburgh, Chicago, California, and Sydney.
+The LinkedIn Job Matcher is at a Minimum Viable Product (MVP) stage. It is designed to streamline the job search process for users by providing personalized job recommendations based on their uploaded CV. The project's uniqueness lies in its ability to read various CV formats, breaking away from the constraints of a common and structured template. The system focuses on data-related roles, including data scientist, data analyst, data engineer, machine learning engineer and business analyst, within specific locations such as London, New York, Dublin, Edinburgh, Chicago, California, and Sydney.
 
 The project workflow involves several key stages:
 
