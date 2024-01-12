@@ -1,7 +1,7 @@
 # LinkedIn Job Matcher
 
 # Overview
-The LinkedIn Job Matcher is at a Minimum Viable Product (MVP) stage. It is designed to streamline the job search process for users by providing personalized job recommendations based on their uploaded CV. The project's uniqueness lies in its ability to read various CV formats, breaking away from the constraints of a common and structured template. The system focuses on data-related roles, including data scientist, data analyst, data engineer, machine learning engineer and business analyst, within specific locations such as London, New York, Dublin, Edinburgh, Chicago, California, and Sydney.
+The LinkedIn Job Matcher is at a Minimum Viable Product (MVP) stage. It is designed to streamline the job search process for users by providing personalized job recommendations based on their uploaded CV to a webpage. The project's uniqueness lies in its ability to read various CV formats, breaking away from the constraints of a common and structured template. The system focuses on data-related roles, including data scientist, data analyst, data engineer, machine learning engineer and business analyst, within specific locations such as London, New York, Dublin, Edinburgh, Chicago, California, and Sydney.
 
 The project workflow involves several key stages:
 
@@ -20,6 +20,8 @@ The project workflow involves several key stages:
 
   - Users can choose a specific job title and location.
   - They have to attach their CV in PDF format.
+
+    ![image](https://github.com/cristinamudarra/linkedin-job-matcher/assets/63545557/20a4e1ee-d109-4d88-a1b1-34b4cf9f9995)
     
 ##  4. PDF Text Extraction:
 
@@ -29,6 +31,8 @@ The project workflow involves several key stages:
 
   - A scoring system evaluates the user's background against existing job opportunities.
   - The user receives personalized recommendations, consisting of the top 5 jobs that align with their skills and preferences.
+    ![image](https://github.com/cristinamudarra/linkedin-job-matcher/assets/63545557/45ac19f5-e9d7-4793-9ff3-8fa3c9b98cf6)
+
 
 # Usage
 Clone the repository:
@@ -46,6 +50,7 @@ Clone the repository:
 
 # Contributing
 Feel free to contribute by opening issues or submitting pull requests. 
+
 
 
 
