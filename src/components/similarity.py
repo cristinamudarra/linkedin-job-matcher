@@ -12,7 +12,7 @@ def similarity(cv, df_jobs, top_offers=5):
     ).flatten()
     df_jobs["similarity"] = cosine_similarities
     df_jobs = df_jobs.sort_values(by="similarity", ascending=False)
-    result = df_jobs[["company", "job-title", "level", "location"]].iloc[
+    result = df_jobs[["company", "job-title", "level", "City"]].iloc[
         :top_offers
     ]
     return result

@@ -5,10 +5,14 @@ from components.data_preprocessing import keep_letters, delete_beginning_end
 import pandas as pd
 
 
-def main_process(cv):
+def main_process(cv, job, city):
+    print(job)
+    print(city)
     # job_offers = scrape_linkedin(job_title="Data scientist", location="New York")
-    job_offers = pd.read_pickle("data/scraped_data/df_data_science.pkl")
+    job_offers = pd.read_pickle("data/scraped_data/total_jobs.pkl")
     job_offers = job_offers.drop_duplicates()
+    job_offers = job_offers[job_offers['City'] == city]
+    job_offers = job_offers[job_offers['Job'] == job]
     job_offers["Job_txt"] = job_offers.Job_txt.apply(delete_beginning_end)
     job_offers["Job_txt"] = job_offers.Job_txt.apply(keep_letters)
 

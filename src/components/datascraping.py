@@ -12,20 +12,20 @@ chromedriver_autoinstaller.install()
 
 
 class LinkedInJobScraper:
-    def __init__(self, job_title, location):
+    def __init__(self, job_title="Data scientist", location="London"):
         self.job_title = job_title
         self.location = location
         self.List_Job_IDs = []
         self.driver = (
             webdriver.Chrome()
         )  # Change this to your preferred WebDriver
-        self.user = "cristinamudarrapradas@gmail.com"
-        self.pwd = "532348290MaRiNaDoR!."
+        self.user = ""
+        self.pwd = ""
 
     def log_in(self):
         # Open LinkedIn login page
         self.driver.get("https://www.linkedin.com/login")
-        time.sleep(5)
+        time.sleep(10)
 
         # Find the username and password fields by their IDs and input the credentials
         username_field = self.driver.find_element("id", "username")
@@ -39,7 +39,9 @@ class LinkedInJobScraper:
         login_button = self.driver.find_element(
             "xpath", '//button[@type="submit"]'
         )
-        login_button.click()
+        login_button.click() 
+        time.sleep(10)
+
 
     def scroll_to_load_jobs(self, page_num=1, sleep_time=5):
         url = f"https://www.linkedin.com/jobs/search/?keywords={self.job_title}&location={self.location}&start={25 * (page_num - 1)}"
@@ -114,7 +116,10 @@ class LinkedInJobScraper:
                 # Get Job Ids present on the page.
                 Jobs_on_this_page = self.find_job_id_aux(soup=soup)
                 self.List_Job_IDs.extend(Jobs_on_this_page)
+        
         print("List_Job_IDs: ", self.List_Job_IDs)
+        
+        return len(self.List_Job_IDs)
 
     def scrape_job_details(self):
         def remove_tags(html):
@@ -219,7 +224,10 @@ class LinkedInJobScraper:
     def scrape_jobs(self):
         self.log_in()
         self.scroll_to_load_jobs()
-        self.find_total_job_ids()
-        job_df = self.scrape_job_details()
-        self.driver.quit()  # Close the WebDriver
-        return job_df
+        jobs = self.find_total_job_ids()
+        if jobs == 0:
+            return pd.DataFrame(columns=["Job_ID", "Job_txt", "company", "job-title", "level", "location", "posted-time-ago", "nb_candidats"])
+        else:
+            job_df = self.scrape_job_details()
+            self.driver.quit()  # Close the WebDriver
+            return job_df
